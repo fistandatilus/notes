@@ -1,9 +1,1 @@
-В чём разница между `factories.SomeModel()` и `factories.SomeModel.create()`?
-
-Почему стек вызовОв, а не стек вЫзовов?
-
-Как разделить контроллер и компонент?
-
-Как пользоваться eslint и prettier?
-
-Какие нужно оставить комментарии в том, что я уже написал?
+pageSize не работает? http://127.0.0.1:8000/api/journals/series/?page=3&pageSize=1
