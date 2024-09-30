@@ -1,0 +1,2 @@
+улучшенный paginator положить в pia/utils/viewsets.py
+прописать в ModelViewSet и citations/views списки
