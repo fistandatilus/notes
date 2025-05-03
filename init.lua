@@ -625,6 +625,7 @@ require("lazy").setup({
             -- language = "en"
             language = "ru-RU",
             enabled = {"latex", "tex" },
+            checkFrequency = "save"
           }
         },
         on_attach = on_attach,
