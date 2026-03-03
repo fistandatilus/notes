@@ -505,9 +505,9 @@ require("lazy").setup({
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-      'williamboman/mason-lspconfig.nvim',
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      { 'mason-org/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
+      'mason-org/mason-lspconfig.nvim',
+      -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -602,7 +602,7 @@ require("lazy").setup({
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
-      require('mason-tool-installer').setup{}
+      -- require('mason-tool-installer').setup{}
 
       require('mason-lspconfig').setup {
         handlers = {
@@ -617,22 +617,27 @@ require("lazy").setup({
         },
       }
 
-      require('lspconfig').ltex.setup({
+      vim.lsp.config('ltex_ls', {
         filetypes = { "latex", "tex" },
-        flags = { debounce_text_changes = 300 },
+        flags = { debounce_text_changes = 3000 },
         settings = {
-          ltex = {
             -- language = "en"
             language = "ru-RU",
             enabled = {"latex", "tex" },
             checkFrequency = "save"
-          }
         },
         on_attach = on_attach,
       })
     end,
 
   },
+  {
+    'mbbill/undotree',
+    config = function()
+      vim.keymap.set('n', '<leader>z', vim.cmd.UndotreeToggle);
+    end,
+
+  }
 
 }, {
     ui = {
